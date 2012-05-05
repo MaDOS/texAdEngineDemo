@@ -63,7 +63,7 @@ namespace textAdEngineDemo_server
 	        data = "WELC".ToByteArray();
 	        networkStream.Write(data, 0, data.Length);
 	
-	        var listener = new Thread(Listen);
+	        Thread listener = new Thread(Listen);
 	        listener.Priority = ThreadPriority.Lowest;
 	        listener.Start();
 		}
