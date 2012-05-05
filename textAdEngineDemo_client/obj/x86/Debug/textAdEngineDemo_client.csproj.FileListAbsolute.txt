@@ -1,0 +1,5 @@
+E:\keep__\_EIGENE PROGRAMME\_classes\ci_texAdEngine\textAdEngineDemo\textAdEngineDemo_client\bin\Debug\textAdEngineDemo_client.exe
+E:\keep__\_EIGENE PROGRAMME\_classes\ci_texAdEngine\textAdEngineDemo\textAdEngineDemo_client\bin\Debug\textAdEngineDemo_client.pdb
+E:\keep__\_EIGENE PROGRAMME\_classes\ci_texAdEngine\textAdEngineDemo\textAdEngineDemo_client\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\keep__\_EIGENE PROGRAMME\_classes\ci_texAdEngine\textAdEngineDemo\textAdEngineDemo_client\obj\x86\Debug\textAdEngineDemo_client.exe
+E:\keep__\_EIGENE PROGRAMME\_classes\ci_texAdEngine\textAdEngineDemo\textAdEngineDemo_client\obj\x86\Debug\textAdEngineDemo_client.pdb
