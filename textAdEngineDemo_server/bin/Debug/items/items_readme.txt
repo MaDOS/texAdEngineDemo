@@ -1,0 +1,1 @@
+﻿Files in this dir are files where item-propertys are stored. So please do backups before you edit them.
