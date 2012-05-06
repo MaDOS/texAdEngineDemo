@@ -60,9 +60,34 @@ namespace textAdEngineDemo_server
 	        tcpClient = tcpListener.AcceptTcpClient();
 	        networkStream = tcpClient.GetStream();
 	        
+	        Console.WriteLine("Client connected");
+	        
 	        data = "WELC".ToByteArray();
 	        networkStream.Write(data, 0, data.Length);
-	
+	        
+	        Thread.Sleep(20);
+	        
+	        bool loggedIn = false;
+	        string username = "";
+	        string password = "";
+	        
+			while (!loggedIn)
+	        {
+	            data = new byte[1024];
+	            received = networkStream.Read(data, 0, data.Length);
+	            if (received == 0)
+	                break;    
+	            string[] login = Encoding.ASCII.GetString(data, 0, received).Split(':');
+	            username = login[0];
+	            password = login[1];
+	            loggedIn = true;
+	            data = "#login:OK".ToByteArray();
+	        	networkStream.Write(data, 0, data.Length);
+			}
+			
+			Console.WriteLine("Username: " + username);
+			Console.WriteLine("Password: " + password);
+			
 	        Thread listener = new Thread(Listen);
 	        listener.Priority = ThreadPriority.Lowest;
 	        listener.Start();
