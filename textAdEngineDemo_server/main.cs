@@ -62,7 +62,7 @@ namespace textAdEngineDemo_server
 	        
 	        Console.WriteLine("Client connected");
 	        
-	        data = "WELC".ToByteArray();
+	        data = ("Welcome " + tcpClient.Client.LocalEndPoint.ToString()).ToByteArray();
 	        networkStream.Write(data, 0, data.Length);
 	        
 	        Thread.Sleep(20);

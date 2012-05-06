@@ -54,16 +54,11 @@ namespace textAdEngineDemo_client
 	        
 	        while(loggedIn)
 	        {
+	        	Thread.Sleep(20);
+	        	Console.Write("@" + serverIP.ToString() + "> ");
 	        	string command = Console.ReadLine();
-	        	
 	        	server.Send(command.ToByteArray());
-	        	
-	        	Thread.Sleep(10);
-	        	
-	        	Console.Write("WASHERE");
 	        }
-	        
-	        Console.Write("was here");
 		}
 		
 		private static void Listen()
@@ -85,7 +80,6 @@ namespace textAdEngineDemo_client
 		
 		private static void parseReceived(string received)
 		{
-			Console.Write("WASHERE!!!");
 			if(received.ToCharArray()[0] == '#')
 			{
 				string[] dataPair = received.Split(':');
@@ -95,10 +89,8 @@ namespace textAdEngineDemo_client
 						loggedIn = true;
 				}
 			}
-			else
-			{
-				Console.WriteLine(received);
-			}
+			
+			Console.WriteLine("server said: " + received);
 		}
 		
 		private static void Disconnect()
