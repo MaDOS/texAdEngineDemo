@@ -3,3 +3,8 @@ E:\keep__\_EIGENE PROGRAMME\_classes\ci_texAdEngine\textAdEngineDemo\textAdEngin
 E:\keep__\_EIGENE PROGRAMME\_classes\ci_texAdEngine\textAdEngineDemo\textAdEngineDemo_client\obj\x86\Debug\ResolveAssemblyReference.cache
 E:\keep__\_EIGENE PROGRAMME\_classes\ci_texAdEngine\textAdEngineDemo\textAdEngineDemo_client\obj\x86\Debug\textAdEngineDemo_client.exe
 E:\keep__\_EIGENE PROGRAMME\_classes\ci_texAdEngine\textAdEngineDemo\textAdEngineDemo_client\obj\x86\Debug\textAdEngineDemo_client.pdb
+D:\_EIGENE PROGRAMME\_classes\ci_texAdEngine\textAdEngineDemo\textAdEngineDemo_client\bin\Debug\textAdEngineDemo_client.exe
+D:\_EIGENE PROGRAMME\_classes\ci_texAdEngine\textAdEngineDemo\textAdEngineDemo_client\bin\Debug\textAdEngineDemo_client.pdb
+D:\_EIGENE PROGRAMME\_classes\ci_texAdEngine\textAdEngineDemo\textAdEngineDemo_client\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\_EIGENE PROGRAMME\_classes\ci_texAdEngine\textAdEngineDemo\textAdEngineDemo_client\obj\x86\Debug\textAdEngineDemo_client.exe
+D:\_EIGENE PROGRAMME\_classes\ci_texAdEngine\textAdEngineDemo\textAdEngineDemo_client\obj\x86\Debug\textAdEngineDemo_client.pdb
