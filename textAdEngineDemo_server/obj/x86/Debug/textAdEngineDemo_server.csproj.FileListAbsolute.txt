@@ -1,9 +1,7 @@
 E:\keep__\_EIGENE PROGRAMME\_classes\ci_texAdEngine\textAdEngineDemo\textAdEngineDemo_server\bin\Debug\textAdEngineDemo_server.exe
 E:\keep__\_EIGENE PROGRAMME\_classes\ci_texAdEngine\textAdEngineDemo\textAdEngineDemo_server\bin\Debug\textAdEngineDemo_server.pdb
 E:\keep__\_EIGENE PROGRAMME\_classes\ci_texAdEngine\textAdEngineDemo\textAdEngineDemo_server\bin\Debug\ci_texAdEngine1.dll
-E:\keep__\_EIGENE PROGRAMME\_classes\ci_texAdEngine\textAdEngineDemo\textAdEngineDemo_server\bin\Debug\ci_crypter.dll
 E:\keep__\_EIGENE PROGRAMME\_classes\ci_texAdEngine\textAdEngineDemo\textAdEngineDemo_server\bin\Debug\ci_texAdEngine1.pdb
-E:\keep__\_EIGENE PROGRAMME\_classes\ci_texAdEngine\textAdEngineDemo\textAdEngineDemo_server\bin\Debug\ci_crypter.pdb
 E:\keep__\_EIGENE PROGRAMME\_classes\ci_texAdEngine\textAdEngineDemo\textAdEngineDemo_server\obj\x86\Debug\ResolveAssemblyReference.cache
 E:\keep__\_EIGENE PROGRAMME\_classes\ci_texAdEngine\textAdEngineDemo\textAdEngineDemo_server\obj\x86\Debug\textAdEngineDemo_server.exe
 E:\keep__\_EIGENE PROGRAMME\_classes\ci_texAdEngine\textAdEngineDemo\textAdEngineDemo_server\obj\x86\Debug\textAdEngineDemo_server.pdb
