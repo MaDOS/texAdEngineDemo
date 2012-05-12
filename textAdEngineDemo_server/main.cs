@@ -8,7 +8,7 @@ using ci_texAdEngine1;
 
 namespace textAdEngineDemo_server
 {
-	static class texAdGame
+	public static class texAdGame
 	{
 		public static game gme;
 		private static Dictionary<string, client> connectedClients;
@@ -83,7 +83,18 @@ namespace textAdEngineDemo_server
 		            string username = login[0];
 		            string password = login[1];
 		            loggedIn = true;
-		            connectedClients.Add(username, new client(tcpClient, username, password));
+		            if(connectedClients.ContainsKey(username))
+		            {
+		            	if(!(connectedClients[username].tcpClient.Connected))
+		            	{
+		            		connectedClients[username] = new client(tcpClient, username, password, ref gme);
+		            	}
+		            }
+		            else
+		            {
+		            	connectedClients.Add(username, new client(tcpClient, username, password, ref gme));
+		            }
+
 				}
 	        }
 			tcpListener.Stop();
