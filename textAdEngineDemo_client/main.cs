@@ -19,6 +19,11 @@ namespace textAdEngineDemo_client
 		
 		public static void Main(string[] args)
 		{
+			connect();
+		}
+		
+		public static void connect()
+		{
 			data = new byte[1024];  //to prevent from crashing use the same buffersize like the server
 			Console.Write("Server IP: ");
 			serverIP = IPAddress.Parse(Console.ReadLine());
@@ -41,7 +46,6 @@ namespace textAdEngineDemo_client
             server.Connect(serverEndPoint);
             
             
-            
             string login = username + ":" + password;
            
             server.Send(login.ToByteArray());
@@ -52,13 +56,20 @@ namespace textAdEngineDemo_client
 	        
 	        Thread.Sleep(1000);
 	        
-	        while(loggedIn)
+	        while(server.Connected)
 	        {
 	        	Thread.Sleep(20);
 	        	Console.Write("@" + serverIP.ToString() + "> ");
 	        	string command = Console.ReadLine();
-	        	server.Send(command.ToByteArray());
+	        	if(server.Connected)
+	        	{
+	        		server.Send(command.ToByteArray());
+	        	}
 	        }
+	        
+            server.Close();
+	        listener.Abort();
+            connect();
 		}
 		
 		private static void Listen()
@@ -69,28 +80,43 @@ namespace textAdEngineDemo_client
 
             while (server.Connected)
             {
-                data = new byte[1024];
-                recv = server.Receive(data);
-                stringData = Encoding.ASCII.GetString(data, 0, recv);
-                parseReceived(stringData);
+            	try
+            	{
+	                data = new byte[1024];
+	                recv = server.Receive(data);
+	                stringData = Encoding.ASCII.GetString(data, 0, recv);
+	                parseReceived(stringData);
+            	}
+            	catch(Exception ex)
+            	{
+            		Console.WriteLine(ex.Message);
+            		if(!server.Connected)
+            		{
+            			Console.WriteLine("Dropping server...Press ENTER for new session...");
+            		}
+            	}
             }
-            Console.WriteLine("Disconnecting from server...");
-            server.Close();
         }
 		
 		private static void parseReceived(string received)
 		{
-			if(received.ToCharArray()[0] == '#')
+			if(received.StartsWith("#"))
 			{
 				string[] dataPair = received.Split(':');
 				if(dataPair[0] == "#login")
 				{
 					if(dataPair[1] == "OK")
+					{
 						loggedIn = true;
-				}
+						Console.WriteLine("Logged in sucessfully");
+					}
+				}	
+			}
+			else if(received.Trim() != "")
+			{
+				Console.WriteLine("server said: " + received);
 			}
 			
-			Console.WriteLine("server said: " + received);
 		}
 		
 		private static void Disconnect()
