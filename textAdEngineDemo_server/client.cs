@@ -33,10 +33,11 @@ namespace textAdEngineDemo_server
 			if(clientPlayer.loginOk)
 			{
 				Console.WriteLine(username + "'s login was ok");
-				data = "#login:OK".ToByteArray();
-			    clientStream.Write(data, 0, data.Length);
+				send("#login:OK");
 			    
 			    GAME.onConnect(this.clientPlayer);
+			    send("#health:" + clientPlayer.health.ToString());
+			    send("#area:" + clientPlayer.position.name);
 			    
 				listener = new Thread(new ThreadStart(listen));
 				listener.Priority = ThreadPriority.BelowNormal;
@@ -45,8 +46,7 @@ namespace textAdEngineDemo_server
 			else
 			{
 				Console.WriteLine(username + "'s login was false");
-				data = "#login:FALSE".ToByteArray();
-			    clientStream.Write(data, 0, data.Length);
+				send("#login:FALSE");
 			    tcpClient.Close();
 			}	
 		}
@@ -55,7 +55,7 @@ namespace textAdEngineDemo_server
 		{
 			int received = 0;
 	
-	        while(true)
+	        while(tcpClient.Connected)
 	        {
 	            data = new byte[1024];
 	            received = clientStream.Read(data, 0, data.Length);
@@ -71,8 +71,21 @@ namespace textAdEngineDemo_server
 		
 		private string parse(string command)
 		{
+			string[] statement = command.Split(' ');
+			string imperativ = statement[0];
+			if(imperativ == "go")
+			{
+				clientPlayer.go(statement[1]);
+				send("#area:" + clientPlayer.position.name);
+			}
 			Console.WriteLine("Client " + username + " sent: \"" + command);
 			return "OK";	
+		}
+		
+		public void send(string dataStr)
+		{
+			data = dataStr.ToByteArray();
+			clientStream.Write(data, 0, data.Length);
 		}
 	}
 }
